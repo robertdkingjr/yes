@@ -15,8 +15,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.135.0.min.js"></script>
-    <script src="js/aws-cognito-sdk.min.js"></script>
-    <script src="js/amazon-cognito-identity.min.js"></script>
+<!--    <script src="js/aws-cognito-sdk.min.js"></script>-->
+<!--    <script src="js/amazon-cognito-identity.min.js"></script>-->
   </head>
   <body ng-app="mysfitsApp" style="background-color:#EBEBEB">
     <style>
@@ -54,7 +54,7 @@
           <form id="loginForm">
             <input type="text" id ="email" name="email" placeholder="Email" />
             <input type="password" id="pwd" name="pwd" placeholder="Password" />
-            <input type="submit" id="login-modal-button" name="login" class="btn btn-info" value="Login"/ >
+            <input type="submit" id="login-modal-button" name="login" class="btn btn-info" value="Login" />
           </form>
           <div class="login-help">
             <a href="register.html">Register</a>
@@ -245,14 +245,14 @@
     </div>
   <script>
 
-    var mysfitsApiEndpoint = 'REPLACE_ME'; // example: 'https://abcd12345.execute-api.us-east-1.amazonaws.com/prod'
-    var streamingApiEndpoint = 'REPLACE_ME'; // example: 'https://abcd12345.execute-api.us-east-1.amazonaws.com/prod'
-    var questionsApiEndpoint = 'REPLACE_ME'; // example: 'https://abcd12345.execute-api.us-east-1.amazonaws.com/prod'
-    var recommendationsApiEndpoint = 'REPLACE_ME'; // example: 'https://abcd12345.execute-api.us-east-1.amazonaws.com/prod'
+    var mysfitsApiEndpoint = 'http://yes-env.eba-ihx3knkk.us-east-2.elasticbeanstalk.com'; // example: 'https://abcd12345.execute-api.us-east-1.amazonaws.com/prod'
+    var streamingApiEndpoint = 'http://yes-env.eba-ihx3knkk.us-east-2.elasticbeanstalk.com'; // example: 'https://abcd12345.execute-api.us-east-1.amazonaws.com/prod'
+    var questionsApiEndpoint = 'http://yes-env.eba-ihx3knkk.us-east-2.elasticbeanstalk.com'; // example: 'https://abcd12345.execute-api.us-east-1.amazonaws.com/prod'
+    var recommendationsApiEndpoint = 'http://yes-env.eba-ihx3knkk.us-east-2.elasticbeanstalk.com'; // example: 'https://abcd12345.execute-api.us-east-1.amazonaws.com/prod'
 
     var cognitoUserPoolId = 'REPLACE_ME';  // example: 'us-east-1_abcd12345'
     var cognitoUserPoolClientId = 'REPLACE_ME'; // example: 'abcd12345abcd12345abcd12345'
-    var awsRegion = 'REPLACE_ME'; // example: 'us-east-1' or 'eu-west-1' etc.
+    var awsRegion = 'us-east-2'; // example: 'us-east-1' or 'eu-west-1' etc.
 
     var app = angular.module('mysfitsApp', []);
 
@@ -264,7 +264,7 @@
 
     var recommendationScope;
 
-    initializeStorage();
+    // initializeStorage();
 
     var configString = localStorage.getItem("awsConfig");
     var config = JSON.parse(configString);
@@ -280,17 +280,16 @@
     }
 
     function initializeStorage() {
-      var identityPoolId = cognitoUserPoolId;//
-      var userPoolId = cognitoUserPoolId; //
-      var clientId = cognitoUserPoolClientId;//
-      var loginPrefix = 'cognito-idp.' + awsRegion + '.amazonaws.com/' + identityPoolId;
+      // var identityPoolId = cognitoUserPoolId;//
+      // var userPoolId = cognitoUserPoolId; //
+      // var clientId = cognitoUserPoolClientId;//
+      // var loginPrefix = 'cognito-idp.' + awsRegion + '.amazonaws.com/' + identityPoolId;
 
-      localStorage.setItem('identityPoolId', identityPoolId);
-      localStorage.setItem('userPoolId', userPoolId);
-      localStorage.setItem('clientId', clientId);
-      localStorage.setItem('loginPrefix', loginPrefix);
+      // localStorage.setItem('identityPoolId', identityPoolId);
+      // localStorage.setItem('userPoolId', userPoolId);
+      // localStorage.setItem('clientId', clientId);
+      // localStorage.setItem('loginPrefix', loginPrefix);
     }
-
 
     $(document).on('click', '#logOutButton', function(event) {
       localStorage.clear();
@@ -1016,4 +1015,5 @@
    }
 
   </script>
+  </body>
 </html>
